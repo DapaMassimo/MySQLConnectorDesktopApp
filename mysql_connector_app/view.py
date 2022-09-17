@@ -1,11 +1,9 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
 Created on Tue May 18 10:23:23 2021
 
 @author: massimo
 """
-from . import tk, ttk, w
+from . import tk, ttk, widget
 
 
 # Views
@@ -17,37 +15,37 @@ class ReadQueryForm(tk.Frame):
         self.controller = parent
 
         # Use Database
-        self.use_db = w.MyLabelFrame(self, label='Use database',
-                                     widget_class=ttk.Combobox,
-                                     widget_dict_args={'values': db_list,
-                                                       'state': 'readonly'},
-                                     widget_event_bindings=[('<<ComboboxSelected>>',
-                                                             self.db_selected)])
+        self.use_db = widget.MyLabelFrame(self, label='Use database',
+                                          widget_class=ttk.Combobox,
+                                          widget_dict_args={'values': db_list,
+                                                            'state': 'readonly'},
+                                          widget_event_bindings=[('<<ComboboxSelected>>',
+                                                                  self.db_selected)])
 
         # Select Fields
-        self.select_fields = w.MyLabelFrame(self, label='Select field',
-                                            widget_class=w.CheckBoxList,
-                                            widget_dict_args={})
+        self.select_fields = widget.MyLabelFrame(self, label='Select field',
+                                                 widget_class=widget.CheckBoxList,
+                                                 widget_dict_args={})
 
         # From Table
-        self.from_table = w.MyLabelFrame(self, label='From table',
-                                         widget_class=ttk.Combobox,
-                                         widget_dict_args={'values': [],
-                                                           'state': 'readonly'},
-                                         widget_event_bindings=[('<<ComboboxSelected>>',
-                                                                 self.table_selected)])
+        self.from_table = widget.MyLabelFrame(self, label='From table',
+                                              widget_class=ttk.Combobox,
+                                              widget_dict_args={'values': [],
+                                                                'state': 'readonly'},
+                                              widget_event_bindings=[('<<ComboboxSelected>>',
+                                                                      self.table_selected)])
 
         # Where Fields
-        self.where_fields = w.MyLabelFrame(self, label='Where field',
-                                           widget_class=ttk.Combobox,
-                                           widget_dict_args={'values': [],
-                                                             'state': 'readonly'})
+        self.where_fields = widget.MyLabelFrame(self, label='Where field',
+                                                widget_class=ttk.Combobox,
+                                                widget_dict_args={'values': [],
+                                                                  'state': 'readonly'})
 
         # Operator
-        self.operator = w.MyLabelFrame(self, label='Condition',
-                                       widget_class=ttk.Combobox,
-                                       widget_dict_args={
-                                           'values': ['regexp']})
+        self.operator = widget.MyLabelFrame(self, label='Condition',
+                                            widget_class=ttk.Combobox,
+                                            widget_dict_args={
+                                                'values': ['regexp']})
 
         # Condition
         self.condition = ttk.Entry(self)

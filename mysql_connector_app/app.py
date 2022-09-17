@@ -1,13 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue May 18 09:57:20 2021
-
-@author: Massimo
-"""
-from . import a
+from . import controller
 
 
-app = a.Application('MySQL connector')
+app = controller.Application('MySQL connector')
 
 app.attributes('-topmost', True)
 app.update()

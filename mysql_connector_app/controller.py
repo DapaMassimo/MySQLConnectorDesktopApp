@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 """
 Created on Tue May 18 09:33:24 2021
 
 @author: Massimo
 """
-from . import tk, ttk, m, v, pyperclip
+from . import tk, ttk, model, view, pyperclip
 
 
 # Controller
@@ -15,12 +14,12 @@ class Application(tk.Tk):
         self.title(title)
         self.resizable(width=False, height=False)
 
-        self.connector = m.MySQLConnector()
+        self.connector = model.MySQLConnector()
 
         ttk.Label(self, text='MySQL gui connector',
                   font=('TkDefaultFont', 16)).grid(row=0)
 
-        self.readform = v.ReadQueryForm(self, self.connector.get_db_list())
+        self.readform = view.ReadQueryForm(self, self.connector.get_db_list())
         self.readform.grid(row=1, padx=10, pady=10)
 
     def get_table_list(self, db):
