@@ -5,9 +5,7 @@ Created on Tue May 18 10:14:57 2021
 
 @author: massimo
 """
-from decouple import config
-import mysql.connector
-from mysql.connector import Error
+from . import config, mysql
 
 
 class MySQLConnector:
@@ -27,7 +25,7 @@ class MySQLConnector:
             self.connection = mysql.connector.connect(host=host, user=user,
                                                       passwd=passwd)
             self.cursor = self.connection.cursor()
-        except Error as e:
+        except mysql.connector.Error as e:
             print('Error %s occurred while connecting.' % e)
 
     def connect_to_db(self, db_name):

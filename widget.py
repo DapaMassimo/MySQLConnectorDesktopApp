@@ -4,7 +4,7 @@ Created on Wed May 19 09:52:03 2021
 
 @author: Massimo
 """
-import tkinter as tk
+from . import tk
 
 
 class MyLabelFrame(tk.LabelFrame):

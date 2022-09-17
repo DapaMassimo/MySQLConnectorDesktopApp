@@ -4,11 +4,7 @@ Created on Tue May 18 09:33:24 2021
 
 @author: Massimo
 """
-import tkinter as tk
-from tkinter import ttk
-import model as m
-import view as v
-import pyperclip
+from . import tk, ttk, m, v, pyperclip
 
 
 # Controller
